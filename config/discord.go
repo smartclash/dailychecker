@@ -2,10 +2,9 @@ package config
 
 import (
 	"fmt"
-	"os"
-
 	"github.com/bwmarrin/discordgo"
 	"github.com/joho/godotenv"
+	"os"
 )
 
 var Discord *discordgo.Session
