@@ -17,7 +17,10 @@ func init() {
 	}
 
 	ConnectDatabase()
-	DB.AutoMigrate()
+	err := DB.AutoMigrate()
+	if err != nil {
+		fmt.Println("Couldn't migrate database")
+	}
 }
 
 func ConnectDatabase() {

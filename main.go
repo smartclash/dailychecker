@@ -19,8 +19,11 @@ func init() {
 func main() {
 	fmt.Println("Bot is now running.  Press CTRL-C to exit.")
 	sc := make(chan os.Signal, 1)
-	signal.Notify(sc, syscall.SIGINT, syscall.SIGTERM, os.Interrupt)
+	signal.Notify(sc, syscall.SIGINT, syscall.SIGTERM)
 	<-sc
 
-	config.Discord.Close()
+	err := config.Discord.Close()
+	if err != nil {
+		fmt.Println("Could not close discord session")
+	}
 }

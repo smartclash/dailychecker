@@ -20,6 +20,7 @@ func init() {
 
 func ConnectDiscord() {
 	var err error
+
 	Discord, err = discordgo.New("Bot " + os.Getenv("DISCORD_TOKEN"))
 	if err != nil {
 		fmt.Println("Could not connect to discord gateway")
