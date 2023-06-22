@@ -2,6 +2,7 @@ package config
 
 import (
 	"fmt"
+	"github.com/smartclash/dailychecker/models"
 	"os"
 
 	"github.com/joho/godotenv"
@@ -17,7 +18,7 @@ func init() {
 	}
 
 	ConnectDatabase()
-	err := DB.AutoMigrate()
+	err := DB.AutoMigrate(models.User{}, models.Question{}, models.Response{})
 	if err != nil {
 		fmt.Println("Couldn't migrate database")
 	}
